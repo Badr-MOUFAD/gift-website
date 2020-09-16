@@ -16,6 +16,7 @@ import CakeRoundedIcon from "@material-ui/icons/CakeRounded";
 
 export default function ResearchField(props) {
   const [open, setOpen] = useState(false);
+  const [paperVariant, setPaperVariant] = useState("outlined");
 
   const onKeyDownHandler = (e) => {
     if (e.key === "Enter") {
@@ -26,7 +27,8 @@ export default function ResearchField(props) {
   return (
     <React.Fragment>
       <Paper
-        variant="outlined"
+        variant={paperVariant}
+        elevation={6}
         style={{
           borderRadius: "9999px",
           padding: "7px",
@@ -39,7 +41,14 @@ export default function ResearchField(props) {
             <SearchRoundedIcon color="action" />
           </Grid>
           <Grid item xs={10}>
-            <InputBase fullWidth={true} onKeyDown={onKeyDownHandler} />
+            <InputBase
+              fullWidth={true}
+              onKeyDown={onKeyDownHandler}
+              onFocus={() => setPaperVariant("elevation")}
+              onBlur={() => setPaperVariant("outlined")}
+              onMouseEnter={() => setPaperVariant("elevation")}
+              onMouseOut={() => setPaperVariant("outlined")}
+            />
           </Grid>
         </Grid>
       </Paper>
