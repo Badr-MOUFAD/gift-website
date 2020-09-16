@@ -10,7 +10,7 @@ html {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   left: 0px;
   bottom: 0px;
   background-color: #f7f7f7;
